@@ -23,7 +23,7 @@ public class App {
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		DemoParser parser = new DemoParser(tokens);
 		
-		ParseTree tree = parser.addition();
+		ParseTree tree = parser.program();
 		
 		return createJasminFile(new MyVisitor().visit(tree));
 
@@ -38,9 +38,7 @@ public class App {
 				".limit stack 100\n"+
 				".limit locals 100\n"+
 				"\n"+
-				"getstatic java/lang/System/out Ljava/io/PrintStream;\n"+
 				instrutions+"\n"+
-				"invokevirtual java/io/PrintStream/println(I)V\n"+
 				"return\n"+ 
 				"\n"+
 				".end method";

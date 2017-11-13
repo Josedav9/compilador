@@ -62,7 +62,7 @@ public class CompilerTest {
 		return new Object [][]{
 			{"println(1+2);", "3" + System.lineSeparator()},
 			{"println(1+2+42);", "45" + System.lineSeparator()},
-			{"println(1);","println(2)", 
+			{"println(1); println(2);", 
 				"1" + System.lineSeparator()+
 				"2" + System.lineSeparator()}
 			
