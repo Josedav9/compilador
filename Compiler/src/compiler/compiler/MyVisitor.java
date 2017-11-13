@@ -1,7 +1,9 @@
 package compiler.compiler;
 
 import compiler.parser.DemoBaseVisitor;
-import compiler.parser.DemoParser.AdditionContext;
+import compiler.parser.DemoParser.DivContext;
+import compiler.parser.DemoParser.MinusContext;
+import compiler.parser.DemoParser.MulContext;
 import compiler.parser.DemoParser.NumberContext;
 import compiler.parser.DemoParser.PlusContext;
 import compiler.parser.DemoParser.PrintlnContext;
@@ -21,10 +23,29 @@ public class MyVisitor extends DemoBaseVisitor<String>{
 	@Override
 	public String visitPlus(PlusContext ctx) {
 		return visitChildren(ctx) + "\n" + 
-				"ldc "+ctx.right.getText() + "\n" +
 				"iadd";
 		
 	}
+	
+	@Override
+	public String visitMinus(MinusContext ctx) {
+		return visitChildren(ctx) + "\n" + 
+				"isub";
+	}
+	
+	@Override
+	public String visitDiv(DivContext ctx) {
+		return visitChildren(ctx) + "\n" + 
+				"idiv";
+	}
+	
+	@Override
+	public String visitMul(MulContext ctx) {
+		return visitChildren(ctx) + "\n" + 
+				"imul";
+	}
+	
+	
 	
 	@Override
 	public String visitNumber(NumberContext ctx) {
